@@ -61,7 +61,17 @@ function verify() {
         verifyButton.innerText = 'Verify'; 
     }, 1000);
 }
-
+function reset() {
+    clickedImages = [];
+    images.forEach(img => img.classList.remove('selected'));
+    resetButton.style.display = 'none';
+    verifyButton.style.display = 'none';
+    para.style.display = 'none';
+    state = 1;
+    h.innerText = 'Please click on the identical tiles to verify that you are not a robot.';
+    shuffleImages();
+  }
+  
 images.forEach(img => img.addEventListener('click', handleClick));
 resetButton.addEventListener('click', reset);
 verifyButton.addEventListener('click', verify);
